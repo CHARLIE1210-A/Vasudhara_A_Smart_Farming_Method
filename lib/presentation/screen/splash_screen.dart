@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'home_page.dart';
+import "package:flutter/material.dart";
+import 'home/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -10,26 +10,32 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _navigateToHome();
+    navigateToHome();
   }
 
-  _navigateToHome() async {
-    await Future.delayed(Duration(seconds: 2), () {});
+  navigateToHome() async {
+    await Future.delayed(Duration(seconds: 4), () {});
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => HomePage()));
+        context, MaterialPageRoute(builder: (context) => HomeScreen()));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
-      child: Center(
-        child: Text(
-          'Splash Screen',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
-          ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset('assets/logo/company.jpeg'), // replace with your image
+            SizedBox(height: 24.0),
+            Text(
+              'Welcome to MyApp',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );
