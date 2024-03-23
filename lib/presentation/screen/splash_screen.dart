@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import 'home/home_page.dart';
+// import 'home/home_page.dart';
+import '../../presentation/screen/onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   navigateToHome() async {
     await Future.delayed(Duration(seconds: 4), () {});
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        context, MaterialPageRoute(builder: (context) => OnBoarding()));
   }
 
   @override
@@ -26,15 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/logo/company.jpeg'), // replace with your image
+            Image.asset('assets/logo/company.png'), // replace with your image
             SizedBox(height: 24.0),
-            Text(
-              'Welcome to MyApp',
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
           ],
         ),
       ),

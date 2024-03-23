@@ -22,23 +22,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
 
-      leading: Builder(
-        builder: (BuildContext context) {
-          return IconButton(
-            icon: const Icon(Icons.menu),
-            color: Colors.white,
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-          );
-        },
-      ),
-      backgroundColor: Colors.blue,
-      // leading: Padding(
-      //   padding: const EdgeInsets.all(8.0),
-      //   child: Image.asset(logoPath), // replace with your logo image path
+      // leading: Builder(
+      //   builder: (BuildContext context) {
+      //     return IconButton(
+      //       icon: const Icon(Icons.menu),
+      //       color: Colors.white,
+      //       onPressed: () {
+      //         Scaffold.of(context).openDrawer();
+      //       },
+      //       tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+      //     );
+      //   },
       // ),
+      backgroundColor: Colors.blue,
     );
   }
 }

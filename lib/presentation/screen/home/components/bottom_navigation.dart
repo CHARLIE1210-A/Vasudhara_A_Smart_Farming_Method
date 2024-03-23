@@ -29,12 +29,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.group),
-          label: 'Community',
+          icon: Icon(Icons.shopping_cart),
+          label: 'Shop',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
+          icon: Icon(Icons.camera_alt),
+          label: 'Scan',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.group),
+          label: 'Community',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.settings),
