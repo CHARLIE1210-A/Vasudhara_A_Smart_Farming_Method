@@ -1,17 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:vasudhara_a_smart_farming_method/presentation/screen/home/components/app_bar.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/home/components/bottom_navigation.dart';
-
-import 'components/categories.dart';
 import 'components/discount_banner.dart';
+import 'components/farming_features.dart';
 import 'components/home_header.dart';
-// import 'components/popular_product.dart';
-import 'components/special_offers.dart';
+
+final features = [
+  const FarmingFeature(
+    title: 'Soil Analysis',
+    icon: Icons.science,
+  ),
+  const FarmingFeature(
+    title: 'Crop Irrigation',
+    icon: Icons.water_damage,
+  ),
+  const FarmingFeature(
+    title: 'Crop Management',
+    icon: Icons.agriculture,
+  ),
+  const FarmingFeature(
+    title: 'Disease Control',
+    icon: Icons.bug_report,
+  ),
+  const FarmingFeature(
+    title: 'Smart Greenhouses',
+    icon: Icons.eco,
+  ),
+  const FarmingFeature(
+    title: 'Remote Sensing',
+    icon: Icons.airplanemode_active_outlined,
+  ),
+  const FarmingFeature(
+    title: 'Financial Analytics',
+    icon: Icons.analytics_outlined,
+  ),
+  const FarmingFeature(
+    title: 'Connect Device',
+    icon: Icons.device_hub,
+  ),
+  // ... Add features with  icons
+];
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "/home";
-
   const HomeScreen({super.key});
 
   @override
@@ -50,22 +81,6 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar:
           CustomAppBar(title: 'Vasudhara', logoPath: 'assets/logo/company.png'),
       endDrawer: CustomDrawer(),
-      // body: SafeArea(
-      //   child: SingleChildScrollView(
-      //     padding: EdgeInsets.symmetric(vertical: 16),
-      //     child: Column(
-      //       children: [
-      //         HomeHeader(),
-      //         DiscountBanner(),
-      //         Categories(),
-      //         SpecialOffers(),
-      //         SizedBox(height: 20),
-      //         // PopularProducts(),
-      //         SizedBox(height: 20),
-      //       ],
-      //     ),
-      //   ),
-      // ),
       body: Stack(
         children: [
           // Main content (hidden when chat screen is visible)
@@ -73,16 +88,14 @@ class _HomeScreenState extends State<HomeScreen> {
             visible: !_showChatScreen,
             child: SafeArea(
               child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(vertical: 16),
+                padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Column(
                   children: [
-                    HomeHeader(),
-                    DiscountBanner(),
-                    Categories(),
-                    SpecialOffers(),
-                    SizedBox(height: 20),
-                    // PopularProducts(),
-                    SizedBox(height: 20),
+                    const HomeHeader(),
+                    const DiscountBanner(),
+                    SizedBox(
+                        height: 400,
+                        child: FarmingFeatures(features: features)),
                   ],
                 ),
               ),
@@ -98,20 +111,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   TextField(
                     controller: _questionController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Ask your question here...',
                     ),
                     onSubmitted: (question) => _getAnswer(question),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: () => _getAnswer(_questionController.text),
-                    child: Text('Get Answer'),
+                    child: const Text('Get Answer'),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     _answer,
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ],
               ),
@@ -119,11 +132,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      // body: FarmingFeatures(features: features),
       floatingActionButton: FloatingActionButton(
         onPressed: _toggleChatScreen,
         child: Icon(_showChatScreen ? Icons.close : Icons.chat),
       ),
-      bottomNavigationBar: BottomNavBar(),
+      // bottomNavigationBar: BottomNavBar(),
     );
   }
 }

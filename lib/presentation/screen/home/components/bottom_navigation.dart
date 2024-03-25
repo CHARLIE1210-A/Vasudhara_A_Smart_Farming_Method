@@ -7,11 +7,19 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int _currentIndex = 0;
+  final List<String> _children = [
+    '/home',
+    '/shop',
+    '/scan',
+    '/community',
+    '/setting',
+  ];
 
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
     });
+    Navigator.pushNamed(context, _children[_currentIndex]);
   }
 
   @override
@@ -23,7 +31,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       backgroundColor: Colors.blue,
       selectedItemColor: Colors.black,
       unselectedItemColor: Colors.white,
-      items: [
+      items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Home',

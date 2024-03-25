@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../../constants.dart';
-// import '../sign_in/sign_in_screen.dart';
 import 'components/onboarding_content.dart';
-import '../home/home_page.dart';
 
 class OnBoarding extends StatefulWidget {
-  static String routeName = "/splash";
+  static String routeName = "/home";
 
   const OnBoarding({super.key});
 
@@ -82,10 +79,10 @@ class _OnBoardingState extends State<OnBoarding> {
                       const Spacer(),
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomeScreen()));
+                          Navigator.pushReplacementNamed(context, '/main'
+                              // MaterialPageRoute(
+                              //     builder: (context) => HomeScreen())
+                              );
                         },
                         child: const Text("Continue"),
                       ),
