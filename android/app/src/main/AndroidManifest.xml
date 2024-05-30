@@ -2,7 +2,7 @@
     <application
         android:label="vasudhara_a_smart_farming_method"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

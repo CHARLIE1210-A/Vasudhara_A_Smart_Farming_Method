@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/community/community.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/crop_scan/crop_scan.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/setting/setting.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/shop/shop_screen.dart';
-
+import 'presentation/screen/community/community.dart';
+import 'presentation/screen/crop_scan/crop_scan.dart';
+import 'presentation/screen/setting/profile.dart';
+import 'presentation/screen/shop/shop_screen.dart';
 import 'presentation/screen/home/home_page.dart';
 
 class MainScreen extends StatefulWidget {
@@ -20,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
     ShopScreen(),
     CropScanScreen(),
     CommunityScreen(),
-    SettingScreen(),
+    const ProfileScreen(),
   ];
 
   void onTabTapped(int index) {
@@ -61,8 +60,8 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Community',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.person_outline_rounded),
+            label: 'Profile',
           ),
         ],
       ),

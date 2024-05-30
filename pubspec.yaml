@@ -38,6 +38,13 @@ dependencies:
   fluent_ui: ^4.8.6
   flutter_svg: ^2.0.10+1
   google_generative_ai: ^0.2.2
+  dash_chat_2: ^0.0.20
+  http: ^1.2.1
+  flutter_dotenv: ^5.1.0
+  baseflow_plugin_template: ^2.1.2
+  geolocator: ^11.0.0
+  syncfusion_flutter_charts: ^25.2.5
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +73,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/logo/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -92,3 +100,22 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+#Flutter launcher icons
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/company.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/logo/company.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/logo/company.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/logo/company.png"

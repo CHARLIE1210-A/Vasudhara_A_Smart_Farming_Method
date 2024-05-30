@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/home/components/app_bar.dart';
-import 'components/discount_banner.dart';
+import '../../../mybot.dart';
+import 'components/app_bar.dart';
+// import 'components/discount_banner.dart';
 import 'components/farming_features.dart';
-import 'components/home_header.dart';
+// import 'components/home_header.dart';
+import 'components/weather.dart';
 
 final features = [
   const FarmingFeature(
@@ -50,94 +51,35 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final TextEditingController _questionController = TextEditingController();
-  String _answer = '';
-  bool _showChatScreen = false;
-
-  Future<void> _getAnswer(String question) async {
-    // Replace with a real API call and response processing logic
-    final response = await http
-        .get(Uri.parse('https://your-api.com/answer?question=$question'));
-    if (response.statusCode == 200) {
-      setState(() {
-        _answer = response.body;
-      });
-    } else {
-      setState(() {
-        _answer = 'Sorry, I couldn\'t find an answer for that question.';
-      });
-    }
-  }
-
-  void _toggleChatScreen() {
-    setState(() {
-      _showChatScreen = !_showChatScreen;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:
           CustomAppBar(title: 'Vasudhara', logoPath: 'assets/logo/company.png'),
       endDrawer: CustomDrawer(),
-      body: Stack(
-        children: [
-          // Main content (hidden when chat screen is visible)
-          Visibility(
-            visible: !_showChatScreen,
-            child: SafeArea(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                child: Column(
-                  children: [
-                    const HomeHeader(),
-                    const DiscountBanner(),
-                    SizedBox(
-                        height: 400,
-                        child: FarmingFeatures(features: features)),
-                  ],
-                ),
-              ),
-            ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Column(
+            children: [
+              // const HomeHeader(),
+              // const DiscountBanner(),
+              const WeatherCard(),
+              SizedBox(height: 400, child: FarmingFeatures(features: features)),
+            ],
           ),
-
-          // Chat screen (overlayed on top of main content)
-          Visibility(
-            visible: _showChatScreen,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  TextField(
-                    controller: _questionController,
-                    decoration: const InputDecoration(
-                      labelText: 'Ask your question here...',
-                    ),
-                    onSubmitted: (question) => _getAnswer(question),
-                  ),
-                  const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: () => _getAnswer(_questionController.text),
-                    child: const Text('Get Answer'),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    _answer,
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
-      // body: FarmingFeatures(features: features),
       floatingActionButton: FloatingActionButton(
-        onPressed: _toggleChatScreen,
-        child: Icon(_showChatScreen ? Icons.close : Icons.chat),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Mybot()),
+          );
+        },
+        child: const Icon(Icons.chat),
       ),
-      // bottomNavigationBar: BottomNavBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

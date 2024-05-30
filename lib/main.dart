@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/community/community.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/crop_scan/crop_scan.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/home/home_page.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/setting/setting.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/shop/shop_screen.dart';
-import 'package:vasudhara_a_smart_farming_method/presentation/screen/splash_screen.dart';
+import 'presentation/screen/community/community.dart';
+import 'presentation/screen/crop_scan/crop_scan.dart';
+import 'presentation/screen/home/home_page.dart';
+import 'presentation/screen/setting/profile.dart';
+import 'presentation/screen/shop/shop_screen.dart';
+import 'presentation/screen/splash_screen.dart';
 
 import 'main_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,17 +23,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: SplashScreen(),
-      initialRoute: '/',
+      // home: CurrentWeather(),
+      // initialRoute: '/',
       routes: {
         '/': (context) => SplashScreen(),
         // '/': (context) => MainScreen(),
-        '/main': (context) => MainScreen(),
-        '/home': (context) => HomeScreen(),
+        '/main': (context) => const MainScreen(),
+        '/home': (context) => const HomeScreen(),
         '/shop': (context) => ShopScreen(),
         '/scan': (context) => CropScanScreen(),
         '/community': (context) => CommunityScreen(),
-        '/setting': (context) => SettingScreen(),
+        '/setting': (context) => const ProfileScreen(),
       },
     );
   }

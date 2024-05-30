@@ -4,16 +4,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 // import '../../../constants.dart';
 
 class IconBtnWithCounter extends StatelessWidget {
-  const IconBtnWithCounter({
-    Key? key,
-    required this.svgSrc,
-    this.numOfitem = 0,
-    required this.press,
-  }) : super(key: key);
-
   final String svgSrc;
   final int numOfitem;
   final GestureTapCallback press;
+
+  const IconBtnWithCounter({
+    Key? key,
+    required this.svgSrc,
+    required this.press,
+    this.numOfitem = 0,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

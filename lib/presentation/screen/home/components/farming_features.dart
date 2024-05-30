@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'soil_analysis_screen.dart';
 
 class FarmingFeature {
   final String title;
@@ -18,7 +19,50 @@ class FarmingFeatureItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        // Navigate to the appropriate screen based on the feature
+        Widget screen;
+        switch (feature.title) {
+          case 'Soil Analysis':
+            screen = SoilAnalysisScreen();
+            break;
+          case 'Crop Irrigation':
+            screen = SoilAnalysisScreen();
+            break;
+          case 'Crop Management':
+            screen = SoilAnalysisScreen();
+            break;
+          case 'Disease Control':
+            screen = SoilAnalysisScreen();
+            break;
+          case 'Smart Greenhouses':
+            screen = SoilAnalysisScreen();
+            break;
+          case 'Financial Analysis':
+            screen = SoilAnalysisScreen();
+            break;
+          case 'Connect Device':
+            screen = SoilAnalysisScreen();
+            break;
+          default:
+            screen = Scaffold(
+              appBar: AppBar(
+                title: Text('Unknown Feature'),
+              ),
+              body: Center(
+                child: Text(
+                  'No screen available for this feature',
+                  style: TextStyle(fontSize: 24),
+                ),
+              ),
+            );
+            break;
+        }
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => screen),
+        );
+      },
       child: Column(
         children: [
           Container(
