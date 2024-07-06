@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -21,10 +22,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              logoPath,
-              height: 45.0,
-              color: Colors.white,
+            // child: Image.asset(
+            //   logoPath,
+            //   height: 45.0,
+            //   color: Colors.white,
+            // ),
+            child: SvgPicture.asset(
+              'assets/logo/download.svg',
+              height: 50,
+              width: 50,
+              colorFilter:
+                  const ColorFilter.mode(Colors.white, BlendMode.srcATop),
             ),
           ),
           Text(

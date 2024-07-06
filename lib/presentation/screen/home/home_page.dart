@@ -55,9 +55,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          CustomAppBar(title: 'Vasudhara', logoPath: 'assets/logo/company.png'),
-      endDrawer: CustomDrawer(),
+      appBar: const CustomAppBar(
+          title: 'Vasudhara', logoPath: 'assets/logo/company.png'),
+      endDrawer: const CustomDrawer(),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 16),
