@@ -16,9 +16,9 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     const HomeScreen(),
-    ShopScreen(),
-    CropScanScreen(),
-    CommunityScreen(),
+    const ShopScreen(),
+    const CropScanScreen(),
+    const CommunityScreen(),
     const ProfileScreen(),
   ];
 
@@ -39,9 +39,11 @@ class _MainScreenState extends State<MainScreen> {
         onTap: onTabTapped,
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.blue,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.white,
+        backgroundColor: Colors.green,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.green[100],
+        selectedLabelStyle: const TextStyle(fontSize: 12),
+        unselectedLabelStyle: const TextStyle(fontSize: 12),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

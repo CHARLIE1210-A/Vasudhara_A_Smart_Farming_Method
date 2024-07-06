@@ -4,13 +4,16 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 class SoilAnalysisScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          PieChartWidget(),
-          BarChartWidget(),
-          LineChartWidget(),
-        ],
+    return Container(
+      color: Colors.white,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            PieChartWidget(),
+            BarChartWidget(),
+            LineChartWidget(),
+          ],
+        ),
       ),
     );
   }

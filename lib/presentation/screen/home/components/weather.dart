@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../shop/cart.dart';
 import 'icon_btn_with_counter.dart';
 
 class WeatherCard extends StatelessWidget {
@@ -25,17 +26,24 @@ class WeatherCard extends StatelessWidget {
                       const SizedBox(width: 4),
                       const Text('Mujgahahan,Dhamtari',
                           style: TextStyle(fontSize: 16)),
-                      const SizedBox(width: 56),
+                      const SizedBox(width: 52),
                       // IconBtnWithCounter(
                       //   svgSrc: "assets/icons/Cart Icon.svg",
                       //   press: () {},
                       //   //   press: () => Navigator.pushNamed(context, CartScreen.routeName),
                       // ),
-                      const SizedBox(width: 48),
+                      const SizedBox(width: 45),
                       IconBtnWithCounter(
                         svgSrc: "assets/icons/Bell.svg",
                         numOfitem: 3,
-                        press: () {},
+                        // press: () {},
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const CartScreen()),
+                          );
+                        },
                       ),
                     ],
                   ),
@@ -46,7 +54,7 @@ class WeatherCard extends StatelessWidget {
               Image.asset('assets/icons/cloudy.png',
                   width: 80, height: 80), // Add your weather icon
               const SizedBox(height: 20),
-              const Text('40°C',
+              const Text('31°C',
                   style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold)),
               const Text('Today is partly sunny day!',
                   style: TextStyle(fontSize: 16, color: Colors.grey)),

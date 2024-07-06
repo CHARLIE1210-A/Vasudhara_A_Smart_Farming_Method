@@ -38,6 +38,9 @@ class FarmingFeatureItem extends StatelessWidget {
           case 'Smart Greenhouses':
             screen = SoilAnalysisScreen();
             break;
+          case 'Remote Sensing':
+            screen = SoilAnalysisScreen();
+            break;
           case 'Financial Analysis':
             screen = SoilAnalysisScreen();
             break;
@@ -47,9 +50,9 @@ class FarmingFeatureItem extends StatelessWidget {
           default:
             screen = Scaffold(
               appBar: AppBar(
-                title: Text('Unknown Feature'),
+                title: const Text('Unknown Feature'),
               ),
-              body: Center(
+              body: const Center(
                 child: Text(
                   'No screen available for this feature',
                   style: TextStyle(fontSize: 24),
@@ -65,22 +68,25 @@ class FarmingFeatureItem extends StatelessWidget {
       },
       child: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.all(14),
-            height: 70,
-            decoration: BoxDecoration(
-              color: const Color(0xFFFFECDF),
+          Card(
+            color: Color(0xFFF7F2FA),
+            shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Center(
-              child: Icon(
-                feature.icon,
-                size: 35.0,
-                color: Colors.green,
+            elevation: 4, // You can adjust the elevation as needed
+            child: Container(
+              padding: const EdgeInsets.all(14),
+              height: 70,
+              child: Center(
+                child: Icon(
+                  feature.icon,
+                  size: 35.0,
+                  color: Colors.green,
+                ),
               ),
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           Text(
             feature.title,
             style: const TextStyle(
@@ -104,7 +110,7 @@ class FarmingFeatures extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.extent(
       maxCrossAxisExtent: 100.0, // Adjust max width of each card
-      childAspectRatio: 0.75, // Adjust aspect ratio for desired sizing
+      childAspectRatio: 0.70, // Adjust aspect ratio for desired sizing
       padding: const EdgeInsets.all(16.0),
       mainAxisSpacing: 15.0, // Spacing between rows
       crossAxisSpacing: 20.0, // Spacing between columns

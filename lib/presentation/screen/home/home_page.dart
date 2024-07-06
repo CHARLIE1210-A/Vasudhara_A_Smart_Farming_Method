@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../mybot.dart';
+import 'components/mybot.dart';
 import 'components/app_bar.dart';
 // import 'components/discount_banner.dart';
 import 'components/farming_features.dart';
@@ -16,21 +16,22 @@ final features = [
     icon: Icons.water_damage,
   ),
   const FarmingFeature(
-    title: 'Crop Management',
-    icon: Icons.agriculture,
-  ),
-  const FarmingFeature(
     title: 'Disease Control',
     icon: Icons.bug_report,
-  ),
-  const FarmingFeature(
-    title: 'Smart Greenhouses',
-    icon: Icons.eco,
   ),
   const FarmingFeature(
     title: 'Remote Sensing',
     icon: Icons.airplanemode_active_outlined,
   ),
+  const FarmingFeature(
+    title: 'Crop Management',
+    icon: Icons.agriculture,
+  ),
+  const FarmingFeature(
+    title: 'Smart Greenhouses',
+    icon: Icons.eco,
+  ),
+
   const FarmingFeature(
     title: 'Financial Analytics',
     icon: Icons.analytics_outlined,

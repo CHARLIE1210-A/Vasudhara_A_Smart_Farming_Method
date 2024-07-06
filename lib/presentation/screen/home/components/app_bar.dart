@@ -1,24 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String logoPath;
 
-  CustomAppBar({required this.title, required this.logoPath});
+  const CustomAppBar({super.key, required this.title, required this.logoPath});
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      iconTheme: const IconThemeData(
+        color: Colors.white, // Change drawer icon color here
+      ),
+
       title: Row(
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.asset(logoPath, height: 36.0),
+            child: Image.asset(
+              logoPath,
+              height: 45.0,
+              color: Colors.white,
+            ),
           ),
-          Text(title),
+          Text(
+            title,
+            style: GoogleFonts.merienda(
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+              letterSpacing: 2.5,
+            ),
+          ),
         ],
       ),
 
@@ -34,83 +51,89 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       //     );
       //   },
       // ),
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.green,
     );
   }
 }
 
 class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: const Color(0xFFFFFFFF),
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-            child: Text('Agriculture Features'),
+          const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.green,
+            ),
+            child: Text(
+              'Agriculture Features',
+              style: TextStyle(color: Colors.white),
             ),
           ),
           ListTile(
-            leading: Icon(Icons.eco),
-            title: Text('Smart Greenhouses'),
+            leading: const Icon(Icons.eco),
+            title: const Text('Smart Greenhouses'),
             onTap: () {
               // Update the state of the app
               // ...
             },
           ),
           ListTile(
-            leading: Icon(Icons.pets),
-            title: Text('Remote Livestock Management'),
+            leading: const Icon(Icons.pets),
+            title: const Text('Remote Livestock Management'),
             onTap: () {
               // Update the state of the app
               // ...
             },
           ),
           ListTile(
-            leading: Icon(Icons.airplanemode_active),
-            title: Text('Drone Monitoring'),
+            leading: const Icon(Icons.airplanemode_active),
+            title: const Text('Drone Monitoring'),
             onTap: () {
               // Update the state of the app
               // ...
             },
           ),
           ListTile(
-            leading: Icon(Icons.analytics_outlined),
-            title: Text('Long-term Forecasts and Financial Analytics'),
+            leading: const Icon(Icons.analytics_outlined),
+            title: const Text('Long-term Forecasts and Financial Analytics'),
             onTap: () {
               // Update the state of the app
               // ...
             },
           ),
           ListTile(
-            leading: Icon(Icons.water_damage),
-            title: Text('Precision Watering'),
+            leading: const Icon(Icons.water_damage),
+            title: const Text('Precision Watering'),
             onTap: () {
               // Update the state of the app
               // ...
             },
           ),
           ListTile(
-            leading: Icon(Icons.bug_report),
-            title: Text('Smart Pest and Disease Control'),
+            leading: const Icon(Icons.bug_report),
+            title: const Text('Smart Pest and Disease Control'),
             onTap: () {
               // Update the state of the app
               // ...
             },
           ),
           ListTile(
-            leading: Icon(Icons.agriculture),
-            title: Text('Crop and Harvest Monitoring'),
+            leading: const Icon(Icons.agriculture),
+            title: const Text('Crop and Harvest Monitoring'),
             onTap: () {
               // Update the state of the app
               // ...
             },
           ),
           ListTile(
-            leading: Icon(Icons.wb_sunny),
-            title: Text('Weather Tracking and Prediction'),
+            leading: const Icon(Icons.wb_sunny),
+            title: const Text('Weather Tracking and Prediction'),
             onTap: () {
               // Update the state of the app
               // ...
