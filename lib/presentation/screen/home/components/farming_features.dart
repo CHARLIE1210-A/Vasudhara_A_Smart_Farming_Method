@@ -110,9 +110,9 @@ class FarmingFeatures extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.extent(
       maxCrossAxisExtent: 100.0, // Adjust max width of each card
-      childAspectRatio: 0.70, // Adjust aspect ratio for desired sizing
+      childAspectRatio: 0.65, // Adjust aspect ratio for desired sizing
       padding: const EdgeInsets.all(16.0),
-      mainAxisSpacing: 15.0, // Spacing between rows
+      mainAxisSpacing: 20.0, // Spacing between rows
       crossAxisSpacing: 20.0, // Spacing between columns
       children: features
           .map((feature) => FarmingFeatureItem(feature: feature))
