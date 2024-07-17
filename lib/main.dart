@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       // home: CurrentWeather(),
       // initialRoute: '/',
       routes: {
-        '/': (context) => SplashScreen(),
+        '/': (context) => const SplashScreen(),
         // '/': (context) => MainScreen(),
         '/main': (context) => const MainScreen(),
         '/home': (context) => const HomeScreen(),
